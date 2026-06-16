@@ -102,3 +102,35 @@ Se implemento la segunda etapa solicitada: ProcessSection + ImpactStats.
 ### Pendiente recomendado
 
 Siguiente etapa: `ProjectsShowcase` + `AiPromptCTA` + `FinalCTA`.
+
+## Etapa 3 completada
+
+Se implemento la tercera etapa solicitada: ProjectsShowcase + AiPromptCTA + FinalCTA.
+
+### Componentes recreados manualmente
+
+- `ProjectsShowcase`: bento gallery de proyectos destacados.
+- `AiPromptCTA`: prompt box visual para iniciar conversaciones sobre automatizacion.
+- `FinalCTA`: llamada final con glow teal y border beam.
+- `Bento minimal / case study`: recreado manualmente en HTML/CSS por no existir base React/Tailwind/shadcn.
+
+### Archivos modificados
+
+- `index.html`
+- `assets/css/styles.css`
+- `assets/js/main.js`
+- `docs/componentes-implementados.md`
+
+### QA planificado
+
+- Validar desktop y mobile sin overflow horizontal.
+- Confirmar 4 cards de proyectos, prompt visual y CTA final.
+- Confirmar que `#contact` y formulario siguen intactos.
+- Confirmar que CSS/JS responden 200 con cachebuster `20260616-21st3`.
+
+### Revision de seguridad
+
+- No se agregaron dependencias externas.
+- No se agregaron scripts remotos.
+- El prompt box es visual y no transmite datos.
+- El formulario existente mantiene validacion, honeypot y endpoint actual.
