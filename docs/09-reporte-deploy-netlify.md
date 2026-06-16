@@ -113,3 +113,45 @@ Acción requerida en Netlify:
 - Ejecutar redeploy desde GitHub para publicar la versión actual.
 - Configurar dominio personalizado si corresponde.
 - Probar Open Graph con la URL final cuando el dominio esté activo.
+
+## Revalidacion publica
+
+Fecha de verificacion: 2026-06-16
+
+Resultado actual: deploy publico actualizado correctamente.
+
+Commit validado:
+
+```text
+339ab9a feat: add projects prompt and final cta
+```
+
+Verificado:
+
+| URL | Resultado |
+| --- | --- |
+| `https://nexolt.netlify.app/` | 200 OK |
+| `https://nexolt.netlify.app/assets/css/styles.css?v=20260616-21st3` | 200 OK |
+| `https://nexolt.netlify.app/assets/js/main.js?v=20260616-21st3` | 200 OK |
+
+Contenido publicado:
+
+- Hero actualizado.
+- 6 servicios.
+- 4 impact stats.
+- 5 cards de proceso.
+- 4 proyectos destacados.
+- AI Prompt CTA.
+- Final CTA.
+- Formulario de contacto existente.
+
+QA publico:
+
+- Desktop: sin errores de consola y sin overflow horizontal.
+- Mobile 390x844: sin errores de consola, sin overflow horizontal y menu movil visible.
+- El titulo del hero resuelve correctamente despues de la animacion inicial.
+
+Pendiente actualizado:
+
+- Configurar dominio personalizado si corresponde.
+- Probar Open Graph con la URL final cuando el dominio este activo.
