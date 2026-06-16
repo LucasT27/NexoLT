@@ -26,7 +26,7 @@ Acciones:
 
 - Inicializar repositorio Git local.
 - Crear rama principal `main`.
-- Crear primer commit con el estado validado del proyecto.
+- Crear primer commit con el estado validado del proyecto: `a9c71cd chore: initial validated static site`.
 
 ## Estrategia Git
 
