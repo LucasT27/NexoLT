@@ -128,10 +128,6 @@ const scrollInd   = document.getElementById('scroll-indicator');
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 let scrambler = null;
-if (!reducedMotion) {
-  scrambler = new ScrambleText(document.querySelector('.hero-h1'));
-  scrambler.init();
-}
 
 function triggerHeroStagger() {
   heroContent.classList.add('stagger-go');
