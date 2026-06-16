@@ -162,6 +162,12 @@ export default function HomePage() {
               todo claro para empezar.
             </p>
           </div>
+          <form name="contacto" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+            <input type="text" name="nombre" />
+            <input type="email" name="email" />
+            <textarea name="mensaje" />
+            <input type="text" name="bot-field" />
+          </form>
           <ContactForm />
         </section>
       </main>
