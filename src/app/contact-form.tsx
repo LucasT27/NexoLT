@@ -17,6 +17,11 @@ export function ContactForm() {
     const nombre = String(formData.get('nombre') || '').trim();
     const email = String(formData.get('email') || '').trim();
     const mensaje = String(formData.get('mensaje') || '').trim();
+    const botField = String(formData.get('bot-field') || '').trim();
+
+    if (botField) {
+      return;
+    }
 
     if (nombre.length < 2) {
       setState('error');
@@ -42,7 +47,7 @@ export function ContactForm() {
     const encoded = new URLSearchParams();
     formData.forEach((value, key) => encoded.append(key, String(value)));
 
-    const response = await fetch('/', {
+    const response = await fetch('/__forms.html', {
       method: 'POST',
       body: encoded.toString(),
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
@@ -64,8 +69,6 @@ export function ContactForm() {
       className="contact-form"
       name="contacto"
       onSubmit={onSubmit}
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
       noValidate
     >
       <input type="hidden" name="form-name" value="contacto" />

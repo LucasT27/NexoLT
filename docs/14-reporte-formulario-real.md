@@ -9,7 +9,7 @@ Hacer que el formulario deje de ser solo una respuesta local y pueda capturar co
 ## Implementado
 
 - Formulario visible `contacto` conectado a Netlify Forms.
-- Formulario oculto estatico para que Netlify lo detecte durante el build.
+- Formulario oculto estatico en `public/__forms.html` para que Netlify lo detecte durante el build.
 - Honeypot `bot-field`.
 - Validacion cliente antes de enviar:
   - nombre minimo 2 caracteres
@@ -26,6 +26,7 @@ Hacer que el formulario deje de ser solo una respuesta local y pueda capturar co
 - `src/app/page.tsx`
 - `src/app/contact-form.tsx`
 - `src/app/globals.css`
+- `public/__forms.html`
 
 ## QA
 
@@ -33,8 +34,8 @@ Hacer que el formulario deje de ser solo una respuesta local y pueda capturar co
 - `npm audit` sin vulnerabilidades.
 - Desktop local sin errores de consola.
 - Sin overflow horizontal.
-- Formulario visible tiene `name="contacto"` y `data-netlify`.
-- Formulario oculto de deteccion existe.
+- Formulario visible tiene `name="contacto"` sin atributos `data-netlify`.
+- Formulario oculto de deteccion existe en `public/__forms.html`.
 - Honeypot existe.
 - Validacion local muestra error sin enviar cuando los campos estan vacios.
 
