@@ -5,6 +5,7 @@ import { FormEvent, useState } from 'react';
 type FormState = 'idle' | 'loading' | 'success' | 'error';
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const formspreeEndpoint = 'https://formspree.io/f/mbdwbgag';
 
 export function ContactForm() {
   const [state, setState] = useState<FormState>('idle');
@@ -17,9 +18,9 @@ export function ContactForm() {
     const nombre = String(formData.get('nombre') || '').trim();
     const email = String(formData.get('email') || '').trim();
     const mensaje = String(formData.get('mensaje') || '').trim();
-    const botField = String(formData.get('bot-field') || '').trim();
+    const gotcha = String(formData.get('_gotcha') || '').trim();
 
-    if (botField) {
+    if (gotcha) {
       return;
     }
 
@@ -43,14 +44,16 @@ export function ContactForm() {
 
     setState('loading');
     setMessage('Enviando consulta...');
-    formData.set('form-name', 'contacto');
-    const encoded = new URLSearchParams();
-    formData.forEach((value, key) => encoded.append(key, String(value)));
 
-    const response = await fetch('/__forms.html', {
+    const response = await fetch(formspreeEndpoint, {
       method: 'POST',
-      body: encoded.toString(),
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nombre,
+        email,
+        mensaje,
+        _gotcha: gotcha
+      })
     });
 
     if (!response.ok) {
@@ -71,10 +74,9 @@ export function ContactForm() {
       onSubmit={onSubmit}
       noValidate
     >
-      <input type="hidden" name="form-name" value="contacto" />
       <label className="bot-field">
         No completar
-        <input name="bot-field" tabIndex={-1} autoComplete="off" />
+        <input name="_gotcha" tabIndex={-1} autoComplete="off" />
       </label>
       <label>
         Nombre
