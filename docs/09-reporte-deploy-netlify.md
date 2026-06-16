@@ -2,7 +2,7 @@
 
 Fecha: 2026-06-15  
 Tarea: Preparar deploy en sitio Netlify existente  
-Estado: configuración agregada, pendiente URL pública final
+Estado: URL pública registrada, pendiente redeploy desde GitHub
 
 ## Roles aplicados
 
@@ -17,6 +17,12 @@ El sitio ya existe en Netlify. El repositorio GitHub ya está publicado en:
 
 ```text
 https://github.com/LucasT27/NexoLT.git
+```
+
+URL pública:
+
+```text
+https://nexolt.netlify.app/
 ```
 
 ## Implementación
@@ -73,8 +79,37 @@ Cuando tengas la URL pública:
 - Verificar que `assets/social/og-image.jpg` cargue 200.
 - Revisar consola del navegador.
 
+## QA post-deploy
+
+Fecha de verificación: 2026-06-15
+
+Resultado actual: requiere redeploy desde GitHub.
+
+Verificado:
+
+| URL | Resultado |
+| --- | --- |
+| `https://nexolt.netlify.app/` | 200 OK |
+| `https://nexolt.netlify.app/assets/css/styles.css?v=20260615` | 404 |
+| `https://nexolt.netlify.app/assets/js/main.js?v=20260615` | 404 |
+| `https://nexolt.netlify.app/assets/social/og-image.jpg` | 404 |
+
+Hallazgo:
+
+La home pública todavía sirve una versión anterior con CSS inline. Eso indica que el sitio de Netlify aún no desplegó el commit actual de GitHub (`9ff4485 chore: add Netlify deploy config`) o sigue usando un deploy manual viejo.
+
+Acción requerida en Netlify:
+
+1. Entrar al sitio `nexolt`.
+2. Ir a **Site configuration → Build & deploy**.
+3. Confirmar que esté conectado al repo `LucasT27/NexoLT`.
+4. Confirmar production branch `main`.
+5. Confirmar publish directory `.`.
+6. Ejecutar **Trigger deploy → Deploy site**.
+7. Al terminar, volver a probar los assets `/assets/...`.
+
 ## Pendiente
 
-- Completar URL pública de Netlify en este documento y en `README.md`.
+- Ejecutar redeploy desde GitHub para publicar la versión actual.
 - Configurar dominio personalizado si corresponde.
 - Probar Open Graph con la URL final cuando el dominio esté activo.

@@ -135,6 +135,12 @@ Ver detalle en [docs/08-reporte-versionado-deploy.md](docs/08-reporte-versionado
 
 ## Netlify
 
+URL pública:
+
+```text
+https://nexolt.netlify.app/
+```
+
 El repo incluye `netlify.toml`.
 
 Configuración:
