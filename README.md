@@ -42,7 +42,8 @@ Roles internos considerados:
 │   ├── 05-reporte-performance-assets.md
 │   ├── 06-reporte-formulario-seguridad.md
 │   ├── 07-reporte-separacion-css-js.md
-│   └── 08-reporte-versionado-deploy.md
+│   ├── 08-reporte-versionado-deploy.md
+│   └── 09-reporte-deploy-netlify.md
 ├── assets/
 │   ├── css/
 │   │   └── styles.css
@@ -110,11 +111,8 @@ Reglas actuales:
 
 ## Deploy recomendado
 
-Opciones compatibles:
+Proveedor recomendado/configurado:
 - Netlify
-- Vercel
-- GitHub Pages
-- Hosting estático tradicional
 
 Para deploy manual, subir:
 - `index.html`
@@ -135,6 +133,19 @@ Para rollback profesional:
 
 Ver detalle en [docs/08-reporte-versionado-deploy.md](docs/08-reporte-versionado-deploy.md).
 
+## Netlify
+
+El repo incluye `netlify.toml`.
+
+Configuración:
+- Build command: vacío.
+- Publish directory: `.`.
+- Production branch: `main`.
+
+Reporte:
+
+[docs/09-reporte-deploy-netlify.md](docs/09-reporte-deploy-netlify.md)
+
 ## Documentación del flujo
 
 - [docs/00-diagnostico.md](docs/00-diagnostico.md)
@@ -146,3 +157,4 @@ Ver detalle en [docs/08-reporte-versionado-deploy.md](docs/08-reporte-versionado
 - [docs/06-reporte-formulario-seguridad.md](docs/06-reporte-formulario-seguridad.md)
 - [docs/07-reporte-separacion-css-js.md](docs/07-reporte-separacion-css-js.md)
 - [docs/08-reporte-versionado-deploy.md](docs/08-reporte-versionado-deploy.md)
+- [docs/09-reporte-deploy-netlify.md](docs/09-reporte-deploy-netlify.md)
