@@ -58,7 +58,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="assets/css/styles.css?v=20260615-21st1">
+<link rel="stylesheet" href="assets/css/styles.css?v=20260616-21st2">
 </head>
 <body>
 
@@ -203,14 +203,31 @@
 </section>
 
 <!-- ── STATS ────────────────────────────────────── -->
-<div class="stats-bar" role="region" aria-label="Métricas">
+<section class="stats-bar impact-stats" aria-labelledby="impact-title">
   <div class="stats-inner">
-    <div class="stat reveal"><div class="stat-num" data-count="100" data-suffix="%">100%</div><div class="stat-label">Orientado al problema real</div></div>
-    <div class="stat reveal"><div class="stat-num" style="white-space:nowrap">End<span style="color:var(--muted);font-size:22px">-to-</span>End</div><div class="stat-label">Desde la idea al deploy</div></div>
-    <div class="stat reveal"><div class="stat-num">Ágil</div><div class="stat-label">Metodología iterativa</div></div>
-    <div class="stat reveal"><div class="stat-num">+Impacto</div><div class="stat-label">Menos código por código</div></div>
+    <div class="impact-copy reveal">
+      <p class="section-tag">Impacto</p>
+      <h2 class="section-title" id="impact-title">Métricas que importan después del deploy</h2>
+      <p class="section-sub">Medimos el valor por tiempo recuperado, procesos simplificados e integraciones que hacen que el sistema trabaje solo cuando corresponde.</p>
+    </div>
+    <div class="stat impact-card reveal" data-delay="0.05s">
+      <div class="stat-num" data-count="18" data-suffix="+">18+</div>
+      <div class="stat-label">Procesos automatizados</div>
+    </div>
+    <div class="stat impact-card reveal" data-delay="0.10s">
+      <div class="stat-num" data-count="240" data-suffix="+">240+</div>
+      <div class="stat-label">Horas ahorradas al mes</div>
+    </div>
+    <div class="stat impact-card reveal" data-delay="0.15s">
+      <div class="stat-num" data-count="32" data-suffix="+">32+</div>
+      <div class="stat-label">Integraciones creadas</div>
+    </div>
+    <div class="stat impact-card impact-card-wide reveal" data-delay="0.20s">
+      <div class="stat-num" data-count="12" data-suffix="+">12+</div>
+      <div class="stat-label">Proyectos entregados con criterio operativo</div>
+    </div>
   </div>
-</div>
+</section>
 
 <!-- ── MARQUEE STRIP ─────────────────────────────── -->
 <div class="marquee-strip" aria-hidden="true">
@@ -322,71 +339,44 @@
 <section id="approach" aria-labelledby="approach-title">
   <div class="section-inner">
     <div class="reveal">
-      <p class="section-tag">Nuestro enfoque</p>
-      <h2 class="section-title" id="approach-title">Cómo trabajamos</h2>
-      <p class="section-sub">Un proceso pensado para entender antes de construir. Cada etapa tiene un propósito concreto.</p>
+      <p class="section-tag">Proceso</p>
+      <h2 class="section-title" id="approach-title">De problema operativo a solución funcionando</h2>
+      <p class="section-sub">Un flujo claro para avanzar sin improvisar: entendemos, priorizamos, construimos, implementamos y mejoramos con datos reales.</p>
     </div>
-    <div class="approach-layout reveal">
-      <!-- DEV: ARIA tabs -->
-      <div class="tabs-col" role="tablist" aria-label="Etapas del proceso">
-        <div class="tab-item active" role="tab" aria-selected="true"  aria-controls="panel-0" id="tab-0" tabindex="0"  onclick="switchTab(0)"><span class="tab-num">01</span>Descubrimiento</div>
-        <div class="tab-item"        role="tab" aria-selected="false" aria-controls="panel-1" id="tab-1" tabindex="-1" onclick="switchTab(1)"><span class="tab-num">02</span>Diagnóstico</div>
-        <div class="tab-item"        role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2" tabindex="-1" onclick="switchTab(2)"><span class="tab-num">03</span>Solución</div>
-        <div class="tab-item"        role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3" tabindex="-1" onclick="switchTab(3)"><span class="tab-num">04</span>Implementación</div>
-        <div class="tab-item"        role="tab" aria-selected="false" aria-controls="panel-4" id="tab-4" tabindex="-1" onclick="switchTab(4)"><span class="tab-num">05</span>Acompañamiento</div>
-      </div>
-      <div class="tab-content-col">
-        <div class="tab-panel active" role="tabpanel" id="panel-0" aria-labelledby="tab-0">
-          <h3>Entendemos el problema real</h3>
-          <p>Antes de escribir una sola línea de código, nos sentamos a escuchar. Relevamos procesos, identificamos fricciones y mapeamos el contexto del negocio.</p>
-          <ul class="tab-features">
-            <li>Entrevistas con stakeholders clave</li>
-            <li>Mapeo de procesos actuales (AS-IS)</li>
-            <li>Identificación de dolores y oportunidades</li>
-            <li>Definición del problema real vs. el síntoma</li>
-          </ul>
+    <div class="process-grid reveal" aria-label="Etapas del proceso">
+      <article class="process-card process-card-featured">
+        <span class="process-num">01</span>
+        <h3>Diagnóstico</h3>
+        <p>Mapeamos procesos, usuarios, datos y fricciones. Separamos síntomas de problemas reales para no construir de más.</p>
+        <ul>
+          <li>Relevamiento operativo</li>
+          <li>Mapa AS-IS</li>
+          <li>Riesgos iniciales</li>
+        </ul>
+      </article>
+      <article class="process-card">
+        <span class="process-num">02</span>
+        <h3>Propuesta</h3>
+        <p>Definimos alcance, impacto esperado y camino técnico con prioridades claras.</p>
+      </article>
+      <article class="process-card">
+        <span class="process-num">03</span>
+        <h3>Desarrollo</h3>
+        <p>Construimos en ciclos cortos con validaciones frecuentes y foco en uso real.</p>
+      </article>
+      <article class="process-card">
+        <span class="process-num">04</span>
+        <h3>Implementación</h3>
+        <p>Preparamos deploy, pruebas, capacitación y transición para que la solución entre en operación.</p>
+      </article>
+      <article class="process-card process-card-wide">
+        <span class="process-num">05</span>
+        <h3>Mejora continua</h3>
+        <p>Medimos uso, detectamos nuevas oportunidades y evolucionamos el sistema con cambios concretos.</p>
+        <div class="process-signal" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
         </div>
-        <div class="tab-panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
-          <h3>Analizamos y priorizamos</h3>
-          <p>Con la información relevada, generamos un diagnóstico claro: qué funciona, qué no, y dónde una solución digital genera mayor impacto.</p>
-          <ul class="tab-features">
-            <li>Análisis de viabilidad técnica y funcional</li>
-            <li>Priorización por impacto y esfuerzo</li>
-            <li>Identificación de dependencias y riesgos</li>
-            <li>Propuesta de valor clara y medible</li>
-          </ul>
-        </div>
-        <div class="tab-panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2">
-          <h3>Diseñamos la solución</h3>
-          <p>Definimos la arquitectura, los flujos y la experiencia de usuario antes de construir. El diseño de la solución es parte del trabajo, no un detalle.</p>
-          <ul class="tab-features">
-            <li>Modelado del proceso futuro (TO-BE)</li>
-            <li>Diseño de flujos de usuario</li>
-            <li>Prototipado y validación temprana</li>
-            <li>Especificación técnica y funcional</li>
-          </ul>
-        </div>
-        <div class="tab-panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3">
-          <h3>Construimos e iteramos</h3>
-          <p>Desarrollamos en ciclos cortos con entregas frecuentes. Cada iteración es validada con usuarios reales y ajustada según el feedback.</p>
-          <ul class="tab-features">
-            <li>Desarrollo con metodología ágil</li>
-            <li>Entregas incrementales cada 2 semanas</li>
-            <li>Testing funcional y de integración</li>
-            <li>Deploy y puesta en producción</li>
-          </ul>
-        </div>
-        <div class="tab-panel" role="tabpanel" id="panel-4" aria-labelledby="tab-4">
-          <h3>Acompañamos el cambio</h3>
-          <p>Lanzar es el comienzo, no el final. Ofrecemos soporte, capacitación y mejoras continuas para que la solución evolucione con el negocio.</p>
-          <ul class="tab-features">
-            <li>Soporte preventivo y correctivo</li>
-            <li>Capacitación al equipo usuario</li>
-            <li>Monitoreo y métricas de impacto</li>
-            <li>Evolución continua de la herramienta</li>
-          </ul>
-        </div>
-      </div>
+      </article>
     </div>
   </div>
 </section>
@@ -566,6 +556,6 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=20260615-21st1" defer></script>
+<script src="assets/js/main.js?v=20260616-21st2" defer></script>
 </body>
 </html>

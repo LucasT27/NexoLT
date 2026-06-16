@@ -6,6 +6,7 @@ const tabItems  = Array.from(document.querySelectorAll('.tab-item'));
 const tabPanels = Array.from(document.querySelectorAll('.tab-panel'));
 
 function switchTab(idx) {
+  if (!tabItems.length || !tabPanels.length || !tabPanels[currentTab] || !tabPanels[idx]) return;
   if (idx === currentTab) return;
   const outgoing = tabPanels[currentTab];
   outgoing.classList.add('exit');
@@ -363,7 +364,7 @@ window.addEventListener('resize', debounce(() => {
   })();
 
   /* hover state on interactive elements */
-  const sel = 'a, button, .skill-card, .servicio-card, .tab-item, .filter-chip, .value-item, .contact-item, .nav-logo';
+  const sel = 'a, button, .skill-card, .servicio-card, .process-card, .impact-card, .tab-item, .filter-chip, .value-item, .contact-item, .nav-logo';
   document.querySelectorAll(sel).forEach(el => {
     el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
     el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
@@ -397,6 +398,8 @@ window.addEventListener('resize', debounce(() => {
   }
 
   initTilt('.servicio-card', 8, 8);
+  initTilt('.process-card',  5, 6);
+  initTilt('.impact-card',   4, 4);
   initTilt('.skill-card',    6, 6);
   initTilt('.value-item',    4, 3);
 })();
