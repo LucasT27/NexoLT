@@ -1,5 +1,18 @@
 import type { Metadata } from 'next';
+import { Inter, Manrope } from 'next/font/google';
 import './globals.css';
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap'
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap'
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://nexolt.netlify.app'),
@@ -21,7 +34,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es-AR">
-      <body>{children}</body>
+      <body className={`${manrope.variable} ${inter.variable}`}>{children}</body>
     </html>
   );
 }
