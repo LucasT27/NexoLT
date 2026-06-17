@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { socialLinks } from '../components';
 import { ContactForm } from '../contact-form';
 import { faqs } from '../data';
 
@@ -18,6 +19,16 @@ export default function ContactoPage() {
             Podemos empezar con una idea general, un proceso que hoy molesta o una necesidad
             concreta. Te respondemos con los proximos pasos posibles.
           </p>
+          <div className="contact-social">
+            <strong>Tambien estamos en redes</strong>
+            <div className="social-links">
+              {socialLinks.map(([label, href]) => (
+                <a key={href} href={href} target="_blank" rel="noreferrer">
+                  {label}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
         <ContactForm />
       </section>

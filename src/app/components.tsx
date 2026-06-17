@@ -11,6 +11,11 @@ export const navItems = [
   ['Proyectos', '/proyectos']
 ] as const;
 
+export const socialLinks = [
+  ['LinkedIn', 'https://www.linkedin.com/in/nexo-lt-8b2152410'],
+  ['Instagram', 'https://www.instagram.com/nexolt.ar/']
+] as const;
+
 export function SiteHeader() {
   return (
     <header className="site-header">
@@ -39,6 +44,13 @@ export function SiteFooter() {
           Nexo<span>LT</span>
         </Link>
         <p>Soluciones digitales para ordenar, automatizar e integrar operaciones.</p>
+        <div className="social-links" aria-label="Redes sociales">
+          {socialLinks.map(([label, href]) => (
+            <a key={href} href={href} target="_blank" rel="noreferrer">
+              {label}
+            </a>
+          ))}
+        </div>
       </div>
       <nav aria-label="Navegacion secundaria">
         {navItems.map(([label, href]) => (
