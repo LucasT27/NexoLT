@@ -278,9 +278,7 @@ h3 {
 }
 
 .diagnostic-copy > p:not(.eyebrow),
-.diagnostic-result p,
-.quick-paths p,
-.quick-paths span {
+.diagnostic-result p {
   color: var(--muted);
   line-height: 1.65;
 }
@@ -371,34 +369,6 @@ h3 {
   display: block;
   margin-top: 8px;
   color: var(--muted);
-}
-
-.quick-paths {
-  display: grid;
-  grid-template-columns: minmax(0, 0.74fr) minmax(0, 1fr);
-  gap: 42px;
-  align-items: start;
-  padding: 76px 6vw;
-  background: var(--soft);
-}
-
-.quick-paths > div:last-child {
-  display: grid;
-  gap: 12px;
-}
-
-.quick-paths a {
-  display: grid;
-  gap: 6px;
-  padding: 22px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 14px 38px rgba(16, 19, 25, 0.05);
-}
-
-.quick-paths strong {
-  font-size: 20px;
 }
 
 .stats,
@@ -937,8 +907,7 @@ h3 {
   .contact-page,
   .wide-panel,
   .site-footer,
-  .route-grid,
-  .quick-paths {
+  .route-grid {
     grid-template-columns: 1fr;
   }
 
@@ -983,8 +952,7 @@ h3 {
   .section-intro,
   .contact-page,
   .faq-section,
-  .route-grid,
-  .quick-paths {
+  .route-grid {
     padding-left: 5vw;
     padding-right: 5vw;
   }

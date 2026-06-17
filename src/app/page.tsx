@@ -4,12 +4,6 @@ import { ContactBand } from './components';
 import { stats } from './data';
 import { HomeDiagnostic } from './home-diagnostic';
 
-const quickPaths = [
-  ['Soluciones', 'Webs, sistemas e integraciones explicadas por tipo de necesidad.', '/soluciones'],
-  ['Implementacion', 'Como pasamos de una idea a una solucion funcionando.', '/implementacion'],
-  ['Contacto', 'Contanos tu caso y vemos el mejor punto de partida.', '/contacto']
-] as const;
-
 export default function HomePage() {
   return (
     <main>
@@ -56,21 +50,6 @@ export default function HomePage() {
             <span>{label}</span>
           </article>
         ))}
-      </section>
-
-      <section className="quick-paths">
-        <div>
-          <p className="eyebrow">Seguir explorando</p>
-          <h2>La home te orienta. Las paginas internas desarrollan.</h2>
-        </div>
-        <div>
-          {quickPaths.map(([title, text, href]) => (
-            <Link href={href} key={href}>
-              <strong>{title}</strong>
-              <span>{text}</span>
-            </Link>
-          ))}
-        </div>
       </section>
 
       <ContactBand
