@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Manrope } from 'next/font/google';
+import { SiteFooter, SiteHeader } from './components';
 import './globals.css';
 
 const manrope = Manrope({
@@ -34,7 +35,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es-AR">
-      <body className={`${manrope.variable} ${inter.variable}`}>{children}</body>
+      <body className={`${manrope.variable} ${inter.variable}`}>
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   );
 }

@@ -1,0 +1,58 @@
+import { Metadata } from 'next';
+import { ContactBand, PageHero, SectionIntro } from '../components';
+import { projects } from '../data';
+
+export const metadata: Metadata = {
+  title: 'Proyectos - NexoLT',
+  description: 'Ejemplos de sistemas, webs, automatizaciones e integraciones que NexoLT puede desarrollar.'
+};
+
+export default function ProyectosPage() {
+  return (
+    <main>
+      <PageHero
+        eyebrow="Proyectos"
+        title="Casos que combinan estrategia, interfaz e integracion."
+        text="Cada proyecto se piensa como una pieza de operacion: debe verse bien, funcionar rapido y resolver una necesidad concreta."
+        image="/assets/images/rubros-software.jpg"
+        alt="Casos de uso digitales para distintos equipos y rubros"
+      />
+
+      <SectionIntro
+        eyebrow="Ejemplos"
+        title="Soluciones posibles para distintos puntos de partida"
+        text="Estos casos no son paquetes cerrados. Sirven para imaginar como se puede bajar una necesidad a una herramienta concreta."
+      />
+      <section className="project-grid expanded">
+        {projects.map(([type, title, text]) => (
+          <article key={title}>
+            <span>{type}</span>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </article>
+        ))}
+      </section>
+
+      <section className="wide-panel">
+        <div>
+          <p className="eyebrow">Criterio</p>
+          <h2>No vendemos piezas sueltas: buscamos resolver un flujo completo</h2>
+          <p>
+            Una web puede necesitar automatizaciones. Un sistema interno puede necesitar reportes.
+            Una integracion puede revelar que hace falta rediseñar una parte del proceso.
+          </p>
+        </div>
+        <div className="pill-list">
+          <span>Analisis</span>
+          <span>UX/UI</span>
+          <span>Frontend</span>
+          <span>Backend</span>
+          <span>Integraciones</span>
+          <span>QA</span>
+        </div>
+      </section>
+
+      <ContactBand title="Mostranos tu idea y la convertimos en plan." />
+    </main>
+  );
+}
