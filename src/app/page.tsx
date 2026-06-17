@@ -1,7 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ContactBand, SectionIntro, SplitFeature } from './components';
-import { industries, integrations, process, projects, services, stats } from './data';
+import { homeCapabilities, homeOutcomes, homeSignals, stats } from './data';
+
+const routes = [
+  ['Soluciones', 'Webs, sistemas e integraciones a medida.', '/soluciones'],
+  ['Rubros', 'Como adaptamos tecnologia a operaciones distintas.', '/rubros'],
+  ['Implementacion', 'El proceso desde diagnostico hasta salida en vivo.', '/implementacion'],
+  ['Proyectos', 'Ejemplos de casos que podemos desarrollar.', '/proyectos']
+] as const;
 
 export default function HomePage() {
   return (
@@ -9,33 +16,48 @@ export default function HomePage() {
       <section className="hero" id="inicio">
         <div className="hero-copy">
           <p className="eyebrow">Soluciones digitales para Argentina</p>
-          <h1>Ordena, automatiza y hace crecer tu operacion.</h1>
+          <h1>Tecnologia que ordena la operacion, no que suma ruido.</h1>
           <p>
-            Creamos sistemas, webs e integraciones para equipos de cualquier rubro que
-            necesitan trabajar mejor, con informacion clara y procesos mas simples.
+            Ayudamos a equipos de cualquier rubro a convertir procesos dispersos en
+            sistemas, webs e integraciones que se usan todos los dias.
           </p>
           <div className="hero-actions">
             <Link className="primary-btn" href="/contacto">
               Agendar una consulta
             </Link>
-            <Link className="secondary-btn" href="/soluciones">
-              Ver soluciones
+            <Link className="secondary-btn" href="/implementacion">
+              Ver como trabajamos
             </Link>
           </div>
         </div>
         <figure className="hero-media">
           <Image
             src="/assets/images/hero-argentina-software.jpg"
-            alt="Equipo trabajando con un sistema digital de gestion y automatizacion"
+            alt="Equipo revisando una solucion digital para ordenar procesos operativos"
             width={1717}
             height={966}
             priority
           />
           <figcaption>
-            <strong>+ control operativo</strong>
-            <span>Sistemas, datos e integraciones en un solo flujo.</span>
+            <strong>Operacion conectada</strong>
+            <span>Web, datos, automatizacion e integraciones trabajando en conjunto.</span>
           </figcaption>
         </figure>
+      </section>
+
+      <section className="home-problem">
+        <div>
+          <p className="eyebrow">Cuando llamar a NexoLT</p>
+          <h2>Si el negocio crece, pero los procesos quedaron atados con parches.</h2>
+        </div>
+        <div className="signal-grid">
+          {homeSignals.map((signal) => (
+            <article key={signal.title}>
+              <h3>{signal.title}</h3>
+              <p>{signal.text}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="stats" aria-label="Metricas de impacto">
@@ -47,91 +69,58 @@ export default function HomePage() {
         ))}
       </section>
 
-      <SectionIntro
-        eyebrow="Vision general"
-        title="Una web multipagina para explicar mejor cada solucion"
-        text="La home resume la propuesta. Cada pagina desarrolla un tema con mas detalle para que el visitante entienda alcance, proceso y posibilidades."
-      />
-      <section className="card-grid">
-        {services.map((service) => (
-          <article className="feature-card" key={service.title}>
-            <span>{service.label}</span>
-            <h3>{service.title}</h3>
-            <p>{service.text}</p>
-            <Link href="/soluciones">Ver detalle</Link>
-          </article>
-        ))}
-      </section>
-
       <SplitFeature
-        eyebrow="Rubros"
-        title="Tecnologia adaptable a distintas operaciones"
-        text="No trabajamos para un unico tipo de negocio. Partimos de como opera cada equipo y diseñamos una solucion alrededor de ese flujo."
-        image="/assets/images/rubros-software.jpg"
-        alt="Collage de rubros con sistemas digitales aplicados a comercio, logistica, salud, educacion e industria"
-      >
-        <div className="pill-list">
-          {industries.map((item) => (
-            <span key={item}>{item}</span>
-          ))}
-        </div>
-        <Link className="text-link" href="/rubros">
-          Explorar rubros
-        </Link>
-      </SplitFeature>
-
-      <SectionIntro
-        eyebrow="Implementacion"
-        title="De problema operativo a solucion funcionando"
-        text="Un flujo claro para avanzar sin improvisar: entendemos, priorizamos, construimos, implementamos y mejoramos."
-      />
-      <section className="process-grid">
-        {process.map(([number, title, text]) => (
-          <article key={number}>
-            <span>{number}</span>
-            <h3>{title}</h3>
-            <p>{text}</p>
-          </article>
-        ))}
-      </section>
-
-      <SplitFeature
-        eyebrow="Integraciones"
-        title="Conectamos las herramientas que ya usas"
-        text="Unimos formularios, planillas, sistemas de gestion, pagos, mensajeria, reportes y APIs para que la informacion deje de viajar a mano."
+        eyebrow="Enfoque"
+        title="Diseñamos alrededor del flujo real de trabajo"
+        text="Antes de escribir codigo, entendemos que pasa entre una consulta, una venta, una tarea, una entrega o un reporte. Desde ahi decidimos si conviene una web, un sistema, una automatizacion o una integracion."
         image="/assets/images/integraciones-sistemas.jpg"
-        alt="Dashboard central conectado con modulos de pagos, mensajeria, datos, reportes y logistica"
+        alt="Mapa de sistemas conectados con datos, reportes e integraciones"
         reverse
       >
-        <div className="mini-grid">
-          {integrations.map(([title, text]) => (
+        <div className="outcome-list">
+          {homeOutcomes.map(([title, text]) => (
             <article key={title}>
               <strong>{title}</strong>
               <span>{text}</span>
             </article>
           ))}
         </div>
-        <Link className="text-link" href="/integraciones">
-          Ver integraciones
-        </Link>
       </SplitFeature>
 
       <SectionIntro
-        eyebrow="Proyectos"
-        title="Casos pensados como sistemas, no como piezas sueltas"
-        text="Ejemplos de soluciones que combinan analisis, interfaz, automatizacion e integracion para resolver una operacion completa."
+        eyebrow="Capacidades"
+        title="Un equipo para convertir necesidades operativas en producto digital"
+        text="La home te muestra el criterio. Las paginas internas desarrollan cada linea de trabajo con mas detalle."
       />
-      <section className="project-grid">
-        {projects.map(([type, title, text]) => (
+      <section className="capability-rail">
+        {homeCapabilities.map(([title, text]) => (
           <article key={title}>
-            <span>{type}</span>
-            <h3>{title}</h3>
+            <span>{title}</span>
             <p>{text}</p>
           </article>
         ))}
       </section>
 
-      <ContactBand />
+      <section className="route-grid">
+        <div>
+          <p className="eyebrow">Explorar</p>
+          <h2>Elegí por donde profundizar</h2>
+          <p>
+            Cada seccion desarrolla una parte distinta: que podemos construir, para que
+            rubros, como integramos herramientas y como implementamos.
+          </p>
+        </div>
+        <div>
+          {routes.map(([title, text, href]) => (
+            <Link href={href} key={href}>
+              <strong>{title}</strong>
+              <span>{text}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <ContactBand title="Contanos que proceso queres ordenar primero." />
     </main>
   );
 }

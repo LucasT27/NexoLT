@@ -55,6 +55,34 @@ export const stats = [
   ['12+', 'Proyectos entregados']
 ] as const;
 
+export const homeSignals = [
+  {
+    title: 'Cuando la informacion esta repartida',
+    text: 'Ventas, administracion y operacion trabajan con datos distintos. Centralizamos estados, responsables y seguimiento.'
+  },
+  {
+    title: 'Cuando todo depende de tareas manuales',
+    text: 'Copiar datos, reenviar mensajes y actualizar planillas consume horas. Automatizamos pasos repetitivos y avisos.'
+  },
+  {
+    title: 'Cuando la web no acompaña al negocio',
+    text: 'El sitio existe, pero no explica bien, no convierte o no se conecta con ningun proceso posterior.'
+  }
+];
+
+export const homeOutcomes = [
+  ['Visibilidad', 'Tableros y estados para entender que pasa sin pedir reportes manuales.'],
+  ['Velocidad', 'Flujos digitales que reducen espera, errores y pasos innecesarios.'],
+  ['Continuidad', 'Soluciones pensadas para crecer por modulos sin rehacer todo.']
+] as const;
+
+export const homeCapabilities = [
+  ['Diagnosticar', 'Mapear procesos, usuarios, datos y oportunidades.'],
+  ['Diseñar', 'Convertir flujos confusos en interfaces claras.'],
+  ['Construir', 'Crear webs, sistemas internos e integraciones.'],
+  ['Acompañar', 'Probar, desplegar, medir y mejorar con uso real.']
+] as const;
+
 export const industries = [
   'Comercio',
   'Servicios',

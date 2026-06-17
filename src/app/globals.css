@@ -235,7 +235,8 @@ h3 {
 .stats,
 .card-grid,
 .process-grid,
-.project-grid {
+.project-grid,
+.signal-grid {
   display: grid;
   gap: 16px;
   padding: 0 6vw 92px;
@@ -251,7 +252,10 @@ h3 {
 .feature-card,
 .process-grid article,
 .project-grid article,
-.mini-grid article {
+.mini-grid article,
+.signal-grid article,
+.outcome-list article,
+.capability-rail article {
   border: 1px solid var(--border);
   border-radius: 8px;
   background: #fff;
@@ -273,9 +277,34 @@ h3 {
 .feature-card p,
 .process-grid p,
 .project-grid p,
-.mini-grid span {
+.mini-grid span,
+.signal-grid p,
+.outcome-list span,
+.capability-rail p,
+.route-grid p,
+.route-grid span {
   color: var(--muted);
   line-height: 1.65;
+}
+
+.home-problem {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr);
+  gap: 44px;
+  padding: 100px 6vw 70px;
+}
+
+.signal-grid {
+  grid-template-columns: 1fr;
+  padding: 0;
+}
+
+.signal-grid article {
+  padding: 26px;
+}
+
+.signal-grid h3 {
+  font-size: 21px;
 }
 
 .section-intro {
@@ -360,13 +389,70 @@ h3 {
   margin-top: 30px;
 }
 
-.mini-grid article {
+.mini-grid article,
+.outcome-list article {
   padding: 18px;
 }
 
-.mini-grid strong {
+.mini-grid strong,
+.outcome-list strong {
   display: block;
   margin-bottom: 6px;
+}
+
+.outcome-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.capability-rail {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  padding: 0 6vw 100px;
+}
+
+.capability-rail article {
+  min-height: 170px;
+  padding: 26px;
+}
+
+.capability-rail span {
+  display: block;
+  margin-bottom: 20px;
+  color: #007d5b;
+  font-family: var(--font-display), var(--font-body), sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.route-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+  padding: 100px 6vw;
+  background: var(--soft);
+}
+
+.route-grid > div:last-child {
+  display: grid;
+  gap: 12px;
+}
+
+.route-grid a {
+  display: grid;
+  gap: 6px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 14px 38px rgba(16, 19, 25, 0.05);
+}
+
+.route-grid strong {
+  font-size: 20px;
 }
 
 .final-cta {
@@ -638,12 +724,14 @@ h3 {
 
   .hero,
   .page-hero,
+  .home-problem,
   .media-section,
   .media-section.reverse,
   .final-cta,
   .contact-page,
   .wide-panel,
-  .site-footer {
+  .site-footer,
+  .route-grid {
     grid-template-columns: 1fr;
   }
 
@@ -656,6 +744,7 @@ h3 {
   .card-grid,
   .process-grid,
   .project-grid,
+  .capability-rail,
   .detail-grid,
   .detail-grid.compact,
   .faq-grid {
@@ -678,11 +767,13 @@ h3 {
 
   .hero,
   .page-hero,
+  .home-problem,
   .media-section,
   .final-cta,
   .section-intro,
   .contact-page,
-  .faq-section {
+  .faq-section,
+  .route-grid {
     padding-left: 5vw;
     padding-right: 5vw;
   }
@@ -701,6 +792,7 @@ h3 {
   .card-grid,
   .process-grid,
   .project-grid,
+  .capability-rail,
   .detail-grid,
   .detail-grid.compact,
   .faq-grid,
