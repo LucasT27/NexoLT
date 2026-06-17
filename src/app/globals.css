@@ -117,6 +117,18 @@ main img {
     linear-gradient(180deg, #fff 0%, #f8fbfd 100%);
 }
 
+.home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(380px, 0.88fr);
+  gap: 48px;
+  align-items: center;
+  min-height: calc(100vh - 86px);
+  padding: 76px 6vw 58px;
+  background:
+    radial-gradient(circle at 82% 8%, rgba(0, 229, 160, 0.12), transparent 28%),
+    linear-gradient(180deg, #fff 0%, #f8fbfd 100%);
+}
+
 .eyebrow {
   display: inline-flex;
   width: fit-content;
@@ -202,10 +214,22 @@ h3 {
   position: relative;
 }
 
+.hero-media.compact {
+  max-width: 620px;
+  justify-self: end;
+}
+
 .hero-media img,
 .media-section > img {
   display: block;
   width: 100%;
+  height: auto;
+}
+
+.home-hero .hero-media img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 
@@ -230,6 +254,151 @@ h3 {
   margin-top: 6px;
   color: var(--muted);
   font-size: 13px;
+}
+
+.diagnostic-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(380px, 0.78fr);
+  gap: 42px;
+  align-items: stretch;
+  padding: 74px 6vw;
+  background: #fff;
+}
+
+.diagnostic-copy,
+.diagnostic-result {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 14px 38px rgba(16, 19, 25, 0.06);
+}
+
+.diagnostic-copy {
+  padding: 34px;
+}
+
+.diagnostic-copy > p:not(.eyebrow),
+.diagnostic-result p,
+.quick-paths p,
+.quick-paths span {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.diagnostic-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.diagnostic-options button {
+  min-height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--soft);
+  color: var(--ink);
+  cursor: pointer;
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 0 15px;
+}
+
+.diagnostic-options button.active,
+.diagnostic-options button[aria-selected='true'] {
+  border-color: rgba(0, 184, 122, 0.35);
+  background: rgba(0, 229, 160, 0.14);
+  color: #007d5b;
+}
+
+.diagnostic-result {
+  display: flex;
+  flex-direction: column;
+  padding: 34px;
+}
+
+.diagnostic-result > span {
+  width: fit-content;
+  margin-bottom: 18px;
+  padding: 7px 12px;
+  border: 1px solid rgba(0, 184, 122, 0.18);
+  border-radius: 999px;
+  background: rgba(0, 229, 160, 0.1);
+  color: #007d5b;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.diagnostic-result > strong {
+  display: block;
+  margin-bottom: 18px;
+  font-family: var(--font-display), var(--font-body), sans-serif;
+  font-size: 32px;
+}
+
+.diagnostic-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 22px;
+}
+
+.proof-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  padding: 0 6vw 74px;
+  background: #fff;
+}
+
+.proof-strip article {
+  padding: 28px;
+  border: 1px solid var(--border);
+  background: var(--soft);
+}
+
+.proof-strip strong {
+  display: block;
+  color: #007d5b;
+  font-family: var(--font-display), var(--font-body), sans-serif;
+  font-size: 38px;
+  line-height: 1;
+}
+
+.proof-strip span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+.quick-paths {
+  display: grid;
+  grid-template-columns: minmax(0, 0.74fr) minmax(0, 1fr);
+  gap: 42px;
+  align-items: start;
+  padding: 76px 6vw;
+  background: var(--soft);
+}
+
+.quick-paths > div:last-child {
+  display: grid;
+  gap: 12px;
+}
+
+.quick-paths a {
+  display: grid;
+  gap: 6px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 14px 38px rgba(16, 19, 25, 0.05);
+}
+
+.quick-paths strong {
+  font-size: 20px;
 }
 
 .stats,
@@ -758,15 +927,18 @@ h3 {
   }
 
   .hero,
+  .home-hero,
   .page-hero,
   .home-problem,
+  .diagnostic-panel,
   .media-section,
   .media-section.reverse,
   .final-cta,
   .contact-page,
   .wide-panel,
   .site-footer,
-  .route-grid {
+  .route-grid,
+  .quick-paths {
     grid-template-columns: 1fr;
   }
 
@@ -776,6 +948,7 @@ h3 {
   }
 
   .stats,
+  .proof-strip,
   .card-grid,
   .process-grid,
   .project-grid,
@@ -801,14 +974,17 @@ h3 {
   }
 
   .hero,
+  .home-hero,
   .page-hero,
   .home-problem,
+  .diagnostic-panel,
   .media-section,
   .final-cta,
   .section-intro,
   .contact-page,
   .faq-section,
-  .route-grid {
+  .route-grid,
+  .quick-paths {
     padding-left: 5vw;
     padding-right: 5vw;
   }
@@ -824,6 +1000,7 @@ h3 {
   }
 
   .stats,
+  .proof-strip,
   .card-grid,
   .process-grid,
   .project-grid,

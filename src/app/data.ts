@@ -83,6 +83,54 @@ export const homeCapabilities = [
   ['Acompañar', 'Probar, desplegar, medir y mejorar con uso real.']
 ] as const;
 
+export const diagnosticOptions = [
+  {
+    id: 'manual',
+    label: 'Procesos manuales',
+    title: 'Necesitas automatizar pasos repetitivos.',
+    text: 'Cuando el equipo copia datos, reenvia mensajes o actualiza planillas a mano, conviene empezar por mapear el flujo y detectar que puede resolverse con automatizaciones simples.',
+    recommendation: 'Automatizacion + integraciones',
+    href: '/integraciones',
+    cta: 'Ver integraciones'
+  },
+  {
+    id: 'web',
+    label: 'Una web que venda mejor',
+    title: 'Necesitas una presencia digital mas clara.',
+    text: 'Si la web no explica, no convierte o no conecta con ningun proceso posterior, el punto de partida es una experiencia comercial mas precisa y medible.',
+    recommendation: 'Web comercial + formulario conectado',
+    href: '/soluciones',
+    cta: 'Ver soluciones'
+  },
+  {
+    id: 'tools',
+    label: 'Herramientas desconectadas',
+    title: 'Necesitas que la informacion fluya.',
+    text: 'Cuando ventas, administracion y operacion trabajan con datos distintos, conviene conectar formularios, pagos, planillas, mensajes o sistemas existentes.',
+    recommendation: 'Integraciones y datos',
+    href: '/integraciones',
+    cta: 'Explorar integraciones'
+  },
+  {
+    id: 'system',
+    label: 'Sistema interno',
+    title: 'Necesitas una herramienta propia.',
+    text: 'Si el negocio ya tiene un proceso particular que ninguna herramienta resuelve bien, se puede construir un sistema interno por modulos.',
+    recommendation: 'Sistema a medida',
+    href: '/proyectos',
+    cta: 'Ver proyectos'
+  },
+  {
+    id: 'unknown',
+    label: 'No se por donde empezar',
+    title: 'Necesitas un diagnostico corto.',
+    text: 'Cuando todavia no esta claro si hace falta web, sistema o automatizacion, empezamos por ordenar problemas, prioridades e impacto esperado.',
+    recommendation: 'Diagnostico inicial',
+    href: '/implementacion',
+    cta: 'Ver implementacion'
+  }
+] as const;
+
 export const industries = [
   'Comercio',
   'Servicios',

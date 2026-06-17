@@ -1,67 +1,56 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ContactBand, SectionIntro, SplitFeature } from './components';
-import { homeCapabilities, homeOutcomes, homeSignals, stats } from './data';
+import { ContactBand } from './components';
+import { stats } from './data';
+import { HomeDiagnostic } from './home-diagnostic';
 
-const routes = [
-  ['Soluciones', 'Webs, sistemas e integraciones a medida.', '/soluciones'],
-  ['Rubros', 'Como adaptamos tecnologia a operaciones distintas.', '/rubros'],
-  ['Implementacion', 'El proceso desde diagnostico hasta salida en vivo.', '/implementacion'],
-  ['Proyectos', 'Ejemplos de casos que podemos desarrollar.', '/proyectos']
+const quickPaths = [
+  ['Soluciones', 'Webs, sistemas e integraciones explicadas por tipo de necesidad.', '/soluciones'],
+  ['Implementacion', 'Como pasamos de una idea a una solucion funcionando.', '/implementacion'],
+  ['Contacto', 'Contanos tu caso y vemos el mejor punto de partida.', '/contacto']
 ] as const;
 
 export default function HomePage() {
   return (
     <main>
-      <section className="hero" id="inicio">
+      <section className="home-hero" id="inicio">
         <div className="hero-copy">
-          <p className="eyebrow">Soluciones digitales para Argentina</p>
-          <h1>Tecnologia que ordena la operacion, no que suma ruido.</h1>
+          <p className="eyebrow">NexoLT</p>
+          <h1>Tecnologia que ordena tu operacion.</h1>
           <p>
-            Ayudamos a equipos de cualquier rubro a convertir procesos dispersos en
-            sistemas, webs e integraciones que se usan todos los dias.
+            Webs, sistemas e integraciones para equipos que quieren trabajar con menos
+            tareas manuales, mas claridad y mejores datos.
           </p>
           <div className="hero-actions">
-            <Link className="primary-btn" href="/contacto">
-              Agendar una consulta
-            </Link>
-            <Link className="secondary-btn" href="/implementacion">
-              Ver como trabajamos
+            <a className="primary-btn" href="#diagnostico">
+              Empezar diagnostico
+            </a>
+            <Link className="secondary-btn" href="/soluciones">
+              Ver soluciones
             </Link>
           </div>
         </div>
-        <figure className="hero-media">
+        <figure className="hero-media compact">
           <Image
             src="/assets/images/hero-argentina-software.jpg"
-            alt="Equipo revisando una solucion digital para ordenar procesos operativos"
+            alt="Equipo revisando una solucion digital para ordenar procesos"
             width={1717}
             height={966}
             priority
           />
           <figcaption>
-            <strong>Operacion conectada</strong>
-            <span>Web, datos, automatizacion e integraciones trabajando en conjunto.</span>
+            <strong>De problema a plan</strong>
+            <span>Elegis una necesidad y te guiamos al siguiente paso.</span>
           </figcaption>
         </figure>
       </section>
 
-      <section className="home-problem">
-        <div>
-          <p className="eyebrow">Cuando llamar a NexoLT</p>
-          <h2>Si el negocio crece, pero los procesos quedaron atados con parches.</h2>
-        </div>
-        <div className="signal-grid">
-          {homeSignals.map((signal) => (
-            <article key={signal.title}>
-              <h3>{signal.title}</h3>
-              <p>{signal.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      <div id="diagnostico">
+        <HomeDiagnostic />
+      </div>
 
-      <section className="stats" aria-label="Metricas de impacto">
-        {stats.map(([value, label]) => (
+      <section className="proof-strip" aria-label="Indicadores de trabajo">
+        {stats.slice(0, 3).map(([value, label]) => (
           <article key={label}>
             <strong>{value}</strong>
             <span>{label}</span>
@@ -69,49 +58,13 @@ export default function HomePage() {
         ))}
       </section>
 
-      <SplitFeature
-        eyebrow="Enfoque"
-        title="Diseñamos alrededor del flujo real de trabajo"
-        text="Antes de escribir codigo, entendemos que pasa entre una consulta, una venta, una tarea, una entrega o un reporte. Desde ahi decidimos si conviene una web, un sistema, una automatizacion o una integracion."
-        image="/assets/images/integraciones-sistemas.jpg"
-        alt="Mapa de sistemas conectados con datos, reportes e integraciones"
-        reverse
-      >
-        <div className="outcome-list">
-          {homeOutcomes.map(([title, text]) => (
-            <article key={title}>
-              <strong>{title}</strong>
-              <span>{text}</span>
-            </article>
-          ))}
-        </div>
-      </SplitFeature>
-
-      <SectionIntro
-        eyebrow="Capacidades"
-        title="Un equipo para convertir necesidades operativas en producto digital"
-        text="La home te muestra el criterio. Las paginas internas desarrollan cada linea de trabajo con mas detalle."
-      />
-      <section className="capability-rail">
-        {homeCapabilities.map(([title, text]) => (
-          <article key={title}>
-            <span>{title}</span>
-            <p>{text}</p>
-          </article>
-        ))}
-      </section>
-
-      <section className="route-grid">
+      <section className="quick-paths">
         <div>
-          <p className="eyebrow">Explorar</p>
-          <h2>Elegí por donde profundizar</h2>
-          <p>
-            Cada seccion desarrolla una parte distinta: que podemos construir, para que
-            rubros, como integramos herramientas y como implementamos.
-          </p>
+          <p className="eyebrow">Seguir explorando</p>
+          <h2>La home te orienta. Las paginas internas desarrollan.</h2>
         </div>
         <div>
-          {routes.map(([title, text, href]) => (
+          {quickPaths.map(([title, text, href]) => (
             <Link href={href} key={href}>
               <strong>{title}</strong>
               <span>{text}</span>
@@ -120,7 +73,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <ContactBand title="Contanos que proceso queres ordenar primero." />
+      <ContactBand
+        title="Tenes una necesidad concreta?"
+        text="Mandanos el contexto y te respondemos con una forma simple de empezar."
+      />
     </main>
   );
 }
