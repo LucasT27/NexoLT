@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ContactBand } from './components';
-import { stats } from './data';
+import { modelCases, stats } from './data';
 import { HomeDiagnostic } from './home-diagnostic';
 
 export default function HomePage() {
@@ -42,6 +42,28 @@ export default function HomePage() {
       <div id="diagnostico">
         <HomeDiagnostic />
       </div>
+
+      <section className="model-preview">
+        <div>
+          <p className="eyebrow">Casos modelo</p>
+          <h2>Escenarios tipicos, sin inventar clientes.</h2>
+          <p>
+            Ejemplos para imaginar como aplicamos tecnologia a problemas reales de operacion.
+          </p>
+        </div>
+        <div className="model-preview-grid">
+          {modelCases.map((item) => (
+            <article key={item.title}>
+              <span>{item.type}</span>
+              <h3>{item.title}</h3>
+              <p>{item.outcome}</p>
+            </article>
+          ))}
+        </div>
+        <Link className="text-link" href="/proyectos">
+          Ver casos modelo
+        </Link>
+      </section>
 
       <section className="proof-strip" aria-label="Indicadores de trabajo">
         {stats.slice(0, 3).map(([value, label]) => (

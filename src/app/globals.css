@@ -371,6 +371,96 @@ h3 {
   color: var(--muted);
 }
 
+.model-preview {
+  display: grid;
+  gap: 28px;
+  padding: 74px 6vw;
+  background: var(--soft);
+}
+
+.model-preview > div:first-child {
+  max-width: 760px;
+}
+
+.model-preview > div:first-child p:not(.eyebrow),
+.model-preview-grid p,
+.model-case-grid p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.model-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.model-preview-grid article,
+.model-case-grid article {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 14px 38px rgba(16, 19, 25, 0.06);
+}
+
+.model-preview-grid article {
+  padding: 26px;
+}
+
+.model-preview-grid span,
+.model-case-grid > article > span {
+  display: inline-flex;
+  margin-bottom: 20px;
+  padding: 7px 12px;
+  border: 1px solid rgba(0, 184, 122, 0.18);
+  border-radius: 999px;
+  background: rgba(0, 229, 160, 0.1);
+  color: #007d5b;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.model-case-grid {
+  display: grid;
+  gap: 18px;
+  padding: 0 6vw 100px;
+}
+
+.model-case-grid article {
+  display: grid;
+  gap: 18px;
+  padding: 30px;
+}
+
+.case-block strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.case-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.case-flow span {
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: var(--soft);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.pill-list.compact {
+  margin-top: 0;
+}
+
+.pill-list.compact span {
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
 .stats,
 .card-grid,
 .process-grid,
@@ -629,7 +719,9 @@ h3 {
 }
 
 .page-hero img {
+  display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -918,6 +1010,7 @@ h3 {
 
   .stats,
   .proof-strip,
+  .model-preview-grid,
   .card-grid,
   .process-grid,
   .project-grid,
@@ -969,6 +1062,7 @@ h3 {
 
   .stats,
   .proof-strip,
+  .model-preview-grid,
   .card-grid,
   .process-grid,
   .project-grid,

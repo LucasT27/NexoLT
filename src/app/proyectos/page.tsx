@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { ContactBand, PageHero, SectionIntro } from '../components';
-import { projects } from '../data';
+import { modelCases } from '../data';
 
 export const metadata: Metadata = {
   title: 'Proyectos - NexoLT',
@@ -19,16 +19,37 @@ export default function ProyectosPage() {
       />
 
       <SectionIntro
-        eyebrow="Ejemplos"
-        title="Soluciones posibles para distintos puntos de partida"
-        text="Estos casos no son paquetes cerrados. Sirven para imaginar como se puede bajar una necesidad a una herramienta concreta."
+        eyebrow="Casos modelo"
+        title="Escenarios tipicos para imaginar una solucion"
+        text="No son clientes reales ni casos publicados. Son modelos de trabajo para mostrar como bajamos un problema operativo a una herramienta concreta."
       />
-      <section className="project-grid expanded">
-        {projects.map(([type, title, text]) => (
-          <article key={title}>
-            <span>{type}</span>
-            <h3>{title}</h3>
-            <p>{text}</p>
+      <section className="model-case-grid">
+        {modelCases.map((item) => (
+          <article key={item.title}>
+            <span>{item.type}</span>
+            <h3>{item.title}</h3>
+            <div className="case-block">
+              <strong>Problema</strong>
+              <p>{item.problem}</p>
+            </div>
+            <div className="case-block">
+              <strong>Solucion</strong>
+              <p>{item.solution}</p>
+            </div>
+            <div className="case-flow" aria-label={`Flujo para ${item.title}`}>
+              {item.flow.map((step) => (
+                <span key={step}>{step}</span>
+              ))}
+            </div>
+            <div className="case-block">
+              <strong>Resultado esperado</strong>
+              <p>{item.outcome}</p>
+            </div>
+            <div className="pill-list compact">
+              {item.components.map((component) => (
+                <span key={component}>{component}</span>
+              ))}
+            </div>
           </article>
         ))}
       </section>

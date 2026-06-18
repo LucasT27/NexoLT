@@ -196,6 +196,36 @@ export const projects = [
   ['Bot / IA', 'Proyecto Bot / IA', 'Asistente interno para clasificar consultas y derivar casos con contexto.']
 ] as const;
 
+export const modelCases = [
+  {
+    type: 'Caso modelo',
+    title: 'Comercio con pedidos desordenados',
+    problem: 'Pedidos por WhatsApp, stock en planillas y estados poco claros para saber que falta preparar o entregar.',
+    solution: 'Panel interno para registrar pedidos, consultar stock, cambiar estados y centralizar el seguimiento.',
+    flow: ['Consulta', 'Pedido', 'Preparacion', 'Entrega', 'Reporte'],
+    outcome: 'Menos errores, mas control diario y mejor respuesta al cliente.',
+    components: ['Panel de pedidos', 'Stock', 'Clientes', 'Estados', 'Reportes']
+  },
+  {
+    type: 'Caso modelo',
+    title: 'Servicios con consultas sin seguimiento',
+    problem: 'Consultas que llegan por web, Instagram o WhatsApp y quedan sin responsable, prioridad ni estado visible.',
+    solution: 'Formulario conectado a un tablero de leads con estados, responsable, recordatorios y fuente de origen.',
+    flow: ['Consulta', 'Clasificacion', 'Asignacion', 'Seguimiento', 'Cierre'],
+    outcome: 'Mas consultas atendidas, menos oportunidades perdidas y trazabilidad comercial.',
+    components: ['Formulario', 'Tablero de leads', 'Recordatorios', 'Notificaciones', 'Metricas']
+  },
+  {
+    type: 'Caso modelo',
+    title: 'Operacion interna con tareas repetitivas',
+    problem: 'El equipo copia datos entre planillas, mails y sistemas, generando demoras y errores faciles de evitar.',
+    solution: 'Automatizacion que recibe datos, valida campos, actualiza una base y dispara avisos al equipo correcto.',
+    flow: ['Entrada de datos', 'Validacion', 'Actualizacion', 'Aviso', 'Auditoria'],
+    outcome: 'Menos carga manual, menos errores y mas tiempo para tareas de mayor valor.',
+    components: ['Automatizacion', 'Base de datos', 'Validaciones', 'Alertas', 'Historial']
+  }
+] as const;
+
 export const implementationSteps = [
   {
     number: '01',
