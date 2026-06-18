@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { motion, useReducedMotion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 
 interface DisplayCardProps {
@@ -46,6 +47,7 @@ interface DisplayCardsProps {
 }
 
 export default function DisplayCards({ cards }: DisplayCardsProps) {
+  const shouldReduceMotion = useReducedMotion();
   const defaultCards = [
     {
       className: "[grid-area:stack] hover:-translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration:700 hover:grayscale-0 before:left-0 before:top-0",
@@ -63,7 +65,26 @@ export default function DisplayCards({ cards }: DisplayCardsProps) {
   return (
     <div className="grid [grid-template-areas:'stack'] place-items-center opacity-100 animate-in fade-in-0 duration-700">
       {displayCards.map((cardProps, index) => (
-        <DisplayCard key={index} {...cardProps} />
+        <motion.div
+          key={index}
+          style={{ gridArea: "stack" }}
+          animate={
+            shouldReduceMotion
+              ? { y: 0, rotate: 0 }
+              : {
+                  y: [0, -12, 0, 8, 0],
+                  rotate: [0, 0.8, 0, -0.6, 0]
+                }
+          }
+          transition={{
+            duration: 7 + index,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: index * 0.7
+          }}
+        >
+          <DisplayCard {...cardProps} />
+        </motion.div>
       ))}
     </div>
   );
