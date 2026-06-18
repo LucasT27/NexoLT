@@ -198,6 +198,7 @@ export const projects = [
 
 export const modelCases = [
   {
+    demo: 'commerce',
     type: 'Caso modelo',
     title: 'Comercio con pedidos desordenados',
     problem: 'Pedidos por WhatsApp, stock en planillas y estados poco claros para saber que falta preparar o entregar.',
@@ -207,6 +208,7 @@ export const modelCases = [
     components: ['Panel de pedidos', 'Stock', 'Clientes', 'Estados', 'Reportes']
   },
   {
+    demo: 'services',
     type: 'Caso modelo',
     title: 'Servicios con consultas sin seguimiento',
     problem: 'Consultas que llegan por web, Instagram o WhatsApp y quedan sin responsable, prioridad ni estado visible.',
@@ -216,6 +218,7 @@ export const modelCases = [
     components: ['Formulario', 'Tablero de leads', 'Recordatorios', 'Notificaciones', 'Metricas']
   },
   {
+    demo: 'automation',
     type: 'Caso modelo',
     title: 'Operacion interna con tareas repetitivas',
     problem: 'El equipo copia datos entre planillas, mails y sistemas, generando demoras y errores faciles de evitar.',

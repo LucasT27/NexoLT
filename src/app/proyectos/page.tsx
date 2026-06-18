@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { ContactBand, PageHero, SectionIntro } from '../components';
 import { modelCases } from '../data';
+import { ModelCaseDemo } from '../model-case-demo';
 
 export const metadata: Metadata = {
   title: 'Proyectos - NexoLT',
@@ -41,6 +42,7 @@ export default function ProyectosPage() {
                 <span key={step}>{step}</span>
               ))}
             </div>
+            <ModelCaseDemo type={item.demo} />
             <div className="case-block">
               <strong>Resultado esperado</strong>
               <p>{item.outcome}</p>
