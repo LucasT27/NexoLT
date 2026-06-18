@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { ContactBand, PageHero, SectionIntro } from '../components';
 import { modelCases } from '../data';
-import { ModelCaseDemo } from '../model-case-demo';
+import { ModelCaseTabs } from '../model-case-tabs';
 
 export const metadata: Metadata = {
   title: 'Proyectos - NexoLT',
@@ -29,29 +29,7 @@ export default function ProyectosPage() {
           <article key={item.title}>
             <span>{item.type}</span>
             <h3>{item.title}</h3>
-            <div className="case-block">
-              <strong>Problema</strong>
-              <p>{item.problem}</p>
-            </div>
-            <div className="case-block">
-              <strong>Solucion</strong>
-              <p>{item.solution}</p>
-            </div>
-            <div className="case-flow" aria-label={`Flujo para ${item.title}`}>
-              {item.flow.map((step) => (
-                <span key={step}>{step}</span>
-              ))}
-            </div>
-            <ModelCaseDemo type={item.demo} />
-            <div className="case-block">
-              <strong>Resultado esperado</strong>
-              <p>{item.outcome}</p>
-            </div>
-            <div className="pill-list compact">
-              {item.components.map((component) => (
-                <span key={component}>{component}</span>
-              ))}
-            </div>
+            <ModelCaseTabs item={item} />
           </article>
         ))}
       </section>

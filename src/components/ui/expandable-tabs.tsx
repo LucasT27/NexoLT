@@ -24,6 +24,7 @@ interface ExpandableTabsProps {
   tabs: TabItem[];
   className?: string;
   activeColor?: string;
+  selectedIndex?: number | null;
   onChange?: (index: number | null) => void;
 }
 
@@ -52,18 +53,25 @@ export function ExpandableTabs({
   tabs,
   className,
   activeColor = "text-primary",
+  selectedIndex,
   onChange,
 }: ExpandableTabsProps) {
   const [selected, setSelected] = React.useState<number | null>(null);
+  const currentSelected = selectedIndex ?? selected;
   const outsideClickRef = React.useRef<HTMLDivElement>(null);
 
   useOnClickOutside(outsideClickRef as React.RefObject<HTMLElement>, () => {
+    if (selectedIndex !== undefined) {
+      return;
+    }
     setSelected(null);
     onChange?.(null);
   });
 
   const handleSelect = (index: number) => {
-    setSelected(index);
+    if (selectedIndex === undefined) {
+      setSelected(index);
+    }
     onChange?.(index);
   };
 
@@ -87,23 +95,25 @@ export function ExpandableTabs({
         const Icon = tab.icon;
         return (
           <motion.button
+            aria-label={tab.title}
             key={tab.title}
             variants={buttonVariants}
             initial={false}
             animate="animate"
-            custom={selected === index}
+            custom={currentSelected === index}
             onClick={() => handleSelect(index)}
             transition={transition}
+            title={tab.title}
             className={cn(
               "relative flex items-center rounded-xl px-4 py-2 text-sm font-medium transition-colors duration-300",
-              selected === index
+              currentSelected === index
                 ? cn("bg-muted", activeColor)
                 : "text-muted-foreground hover:bg-muted hover:text-foreground"
             )}
           >
             <Icon size={20} />
             <AnimatePresence initial={false}>
-              {selected === index && (
+              {currentSelected === index && (
                 <motion.span
                   variants={spanVariants}
                   initial="initial"

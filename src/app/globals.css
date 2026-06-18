@@ -436,6 +436,26 @@ h3 {
   padding: 30px;
 }
 
+.model-tabs {
+  display: grid;
+  gap: 18px;
+}
+
+.model-tabs-control {
+  width: fit-content;
+  max-width: 100%;
+  border-radius: 999px !important;
+  border-color: var(--border) !important;
+  background: var(--soft) !important;
+}
+
+.model-tabs-panel {
+  min-height: 250px;
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
 .case-block strong {
   display: block;
   margin-bottom: 6px;
