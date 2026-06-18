@@ -5,7 +5,7 @@ import { ModelCaseTabs } from '../model-case-tabs';
 
 export const metadata: Metadata = {
   title: 'Proyectos - NexoLT',
-  description: 'Ejemplos de sistemas, webs, automatizaciones e integraciones que NexoLT puede desarrollar.'
+  description: 'Proyectos desarrollados por NexoLT: ERPs, ecommerce, automatizaciones e integraciones.'
 };
 
 export default function ProyectosPage() {
@@ -13,16 +13,16 @@ export default function ProyectosPage() {
     <main>
       <PageHero
         eyebrow="Proyectos"
-        title="Casos que combinan estrategia, interfaz e integracion."
-        text="Cada proyecto se piensa como una pieza de operacion: debe verse bien, funcionar rapido y resolver una necesidad concreta."
+        title="Software real para operaciones reales."
+        text="Estos proyectos muestran como llevamos problemas concretos a sistemas, ecommerce, automatizaciones e integraciones que se pueden usar todos los dias."
         image="/assets/images/rubros-software.jpg"
         alt="Casos de uso digitales para distintos equipos y rubros"
       />
 
       <SectionIntro
-        eyebrow="Casos modelo"
-        title="Escenarios tipicos para imaginar una solucion"
-        text="No son clientes reales ni casos publicados. Son modelos de trabajo para mostrar como bajamos un problema operativo a una herramienta concreta."
+        eyebrow="Trabajos realizados"
+        title="Cada caso tiene problema, solucion y una demo visual"
+        text="La idea no es mostrar solo una lista de funciones: mostramos que necesidad habia, que sistema se construyo y como se veria el software funcionando."
       />
       <section className="model-case-grid">
         {modelCases.map((item) => (

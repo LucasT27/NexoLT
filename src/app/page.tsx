@@ -46,14 +46,14 @@ export default function HomePage() {
 
       <section className="model-preview">
         <div>
-          <p className="eyebrow">Casos modelo</p>
-          <h2>Escenarios tipicos, sin inventar clientes.</h2>
+          <p className="eyebrow">Proyectos</p>
+          <h2>Software que ya resolvio problemas concretos.</h2>
           <p>
-            Ejemplos para imaginar como aplicamos tecnologia a problemas reales de operacion.
+            ERPs, ecommerce, integraciones y automatizaciones pensadas para trabajar mejor.
           </p>
         </div>
         <div className="model-preview-grid">
-          {modelCases.map((item) => (
+          {modelCases.slice(0, 3).map((item) => (
             <article key={item.title}>
               <span>{item.type}</span>
               <h3>{item.title}</h3>
@@ -88,7 +88,7 @@ export default function HomePage() {
           />
         </div>
         <Link className="text-link" href="/proyectos">
-          Ver casos modelo
+          Ver proyectos
         </Link>
       </section>
 

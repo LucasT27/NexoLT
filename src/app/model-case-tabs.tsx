@@ -1,6 +1,6 @@
 'use client';
 
-import { Activity, CheckCircle2, GitBranch, PackageCheck, Wrench } from 'lucide-react';
+import { Activity, CheckCircle2, GitBranch, Wrench } from 'lucide-react';
 import { useState } from 'react';
 import { ExpandableTabs } from '@/components/ui/expandable-tabs';
 import { modelCases } from './data';
@@ -12,7 +12,6 @@ const tabs = [
   { title: 'Problema', icon: Activity },
   { title: 'Solucion', icon: Wrench },
   { title: 'Flujo', icon: GitBranch },
-  { title: 'Demo', icon: PackageCheck },
   { title: 'Resultado', icon: CheckCircle2 }
 ];
 
@@ -29,44 +28,46 @@ export function ModelCaseTabs({ item }: { item: ModelCase }) {
         tabs={tabs}
       />
 
-      <div className="model-tabs-panel">
-        {activeTab === 0 ? (
-          <div className="case-block">
-            <strong>Problema</strong>
-            <p>{item.problem}</p>
-          </div>
-        ) : null}
-
-        {activeTab === 1 ? (
-          <div className="case-block">
-            <strong>Solucion</strong>
-            <p>{item.solution}</p>
-          </div>
-        ) : null}
-
-        {activeTab === 2 ? (
-          <div className="case-flow" aria-label={`Flujo para ${item.title}`}>
-            {item.flow.map((step) => (
-              <span key={step}>{step}</span>
-            ))}
-          </div>
-        ) : null}
-
-        {activeTab === 3 ? <ModelCaseDemo type={item.demo} /> : null}
-
-        {activeTab === 4 ? (
-          <>
+      <div className="model-tabs-layout">
+        <div className="model-tabs-panel">
+          {activeTab === 0 ? (
             <div className="case-block">
-              <strong>Resultado esperado</strong>
-              <p>{item.outcome}</p>
+              <strong>Problema</strong>
+              <p>{item.problem}</p>
             </div>
-            <div className="pill-list compact">
-              {item.components.map((component) => (
-                <span key={component}>{component}</span>
+          ) : null}
+
+          {activeTab === 1 ? (
+            <div className="case-block">
+              <strong>Solucion</strong>
+              <p>{item.solution}</p>
+            </div>
+          ) : null}
+
+          {activeTab === 2 ? (
+            <div className="case-flow" aria-label={`Flujo para ${item.title}`}>
+              {item.flow.map((step) => (
+                <span key={step}>{step}</span>
               ))}
             </div>
-          </>
-        ) : null}
+          ) : null}
+
+          {activeTab === 3 ? (
+            <>
+              <div className="case-block">
+                <strong>Resultado</strong>
+                <p>{item.outcome}</p>
+              </div>
+              <div className="pill-list compact">
+                {item.components.map((component) => (
+                  <span key={component}>{component}</span>
+                ))}
+              </div>
+            </>
+          ) : null}
+        </div>
+
+        <ModelCaseDemo type={item.demo} />
       </div>
     </div>
   );

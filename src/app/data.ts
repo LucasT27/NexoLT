@@ -198,34 +198,56 @@ export const projects = [
 
 export const modelCases = [
   {
-    demo: 'commerce',
-    type: 'Caso modelo',
-    title: 'Comercio con pedidos desordenados',
-    problem: 'Pedidos por WhatsApp, stock en planillas y estados poco claros para saber que falta preparar o entregar.',
-    solution: 'Panel interno para registrar pedidos, consultar stock, cambiar estados y centralizar el seguimiento.',
-    flow: ['Consulta', 'Pedido', 'Preparacion', 'Entrega', 'Reporte'],
-    outcome: 'Menos errores, mas control diario y mejor respuesta al cliente.',
-    components: ['Panel de pedidos', 'Stock', 'Clientes', 'Estados', 'Reportes']
+    demo: 'fausto',
+    type: 'ERP / Integraciones',
+    title: 'Fausto Motos ERP',
+    problem:
+      'El negocio de repuestos operaba ventas por mostrador, WhatsApp y MercadoLibre sin registro centralizado, con stock desactualizado y poca visibilidad diaria.',
+    solution:
+      'Sistema de gestion integral para unificar canales de venta, sincronizar stock con MercadoLibre, importar ordenes pagadas y reemplazar la caja manual por cierres diarios.',
+    flow: ['Venta', 'Stock', 'Orden ML', 'Caja', 'Dashboard'],
+    outcome:
+      'Trazabilidad completa de ventas, stock e historial de clientes, con menos doble carga y mejor control del negocio en tiempo real.',
+    components: ['Ventas multicanal', 'Stock sincronizado', 'MercadoLibre', 'Caja diaria', 'Dashboard']
   },
   {
-    demo: 'services',
-    type: 'Caso modelo',
-    title: 'Servicios con consultas sin seguimiento',
-    problem: 'Consultas que llegan por web, Instagram o WhatsApp y quedan sin responsable, prioridad ni estado visible.',
-    solution: 'Formulario conectado a un tablero de leads con estados, responsable, recordatorios y fuente de origen.',
-    flow: ['Consulta', 'Clasificacion', 'Asignacion', 'Seguimiento', 'Cierre'],
-    outcome: 'Mas consultas atendidas, menos oportunidades perdidas y trazabilidad comercial.',
-    components: ['Formulario', 'Tablero de leads', 'Recordatorios', 'Notificaciones', 'Metricas']
+    demo: 'canna',
+    type: 'ERP / Hojas de vida',
+    title: 'CannaERP',
+    problem:
+      'Asociaciones de cannabis medicinal necesitaban reemplazar caos de planillas y mensajes dispersos por una gestion unificada y trazable.',
+    solution:
+      'ERP con hojas de vida, gestion operativa, finanzas, distribucion e integracion nativa de WhatsApp para centralizar el trabajo diario.',
+    flow: ['Registro', 'Hojas de vida', 'Gestion', 'Distribucion', 'Seguimiento'],
+    outcome:
+      'Un sistema pensado para operar con informacion centralizada, menos dispersion y mejor seguimiento de cada etapa.',
+    components: ['Hojas de vida', 'Finanzas', 'WhatsApp', 'Distribucion', 'Gestion']
   },
   {
-    demo: 'automation',
-    type: 'Caso modelo',
-    title: 'Operacion interna con tareas repetitivas',
-    problem: 'El equipo copia datos entre planillas, mails y sistemas, generando demoras y errores faciles de evitar.',
-    solution: 'Automatizacion que recibe datos, valida campos, actualiza una base y dispara avisos al equipo correcto.',
-    flow: ['Entrada de datos', 'Validacion', 'Actualizacion', 'Aviso', 'Auditoria'],
-    outcome: 'Menos carga manual, menos errores y mas tiempo para tareas de mayor valor.',
-    components: ['Automatizacion', 'Base de datos', 'Validaciones', 'Alertas', 'Historial']
+    demo: 'store',
+    type: 'Ecommerce / Pagos',
+    title: 'HDV Store',
+    problem:
+      'Una tienda de importaciones necesitaba una plataforma online con usuarios, carrito persistente, productos en stock y productos a pedido.',
+    solution:
+      'Ecommerce desarrollado de punta a punta con autenticacion, catalogo doble, MercadoPago, webhook de ordenes y pipeline de deploy automatizado.',
+    flow: ['Catalogo', 'Carrito', 'Pago', 'Webhook', 'Orden'],
+    outcome:
+      'Tienda online con compra completa, pagos integrados y registro automatico de ordenes para operar sin carga manual posterior.',
+    components: ['Frontend', 'Auth', 'Carrito', 'MercadoPago', 'CI/CD']
+  },
+  {
+    demo: 'streaming',
+    type: 'Automatizacion / Redes',
+    title: 'HDV Streaming',
+    problem:
+      'Un canal deportivo necesitaba publicar contenido diario en distintas redes sin depender de intervencion manual constante.',
+    solution:
+      'Workflow end-to-end que procesa partidos del dia, genera flyers personalizados, redacta captions y publica el contenido en redes sociales.',
+    flow: ['Partidos', 'Flyers', 'Captions', 'Publicacion', 'Reporte'],
+    outcome:
+      'Publicacion automatizada de contenido deportivo con presencia consistente en varias plataformas y menos trabajo repetitivo.',
+    components: ['Automatizacion', 'Contenido', 'Redes sociales', 'Captions', 'Publicacion']
   }
 ] as const;
 
