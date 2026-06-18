@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { ContactBand, PageHero, SectionIntro, SplitFeature } from '../components';
 import { serviceDetails } from '../data';
+import { SolutionsBento } from '../solutions-bento';
 
 export const metadata: Metadata = {
   title: 'Soluciones digitales - NexoLT',
@@ -23,6 +24,7 @@ export default function SolucionesPage() {
         title="Modulos claros, integrados y pensados para crecer"
         text="Cada proyecto puede empezar chico y sumar capacidades cuando el proceso lo pide. Priorizamos impacto, uso real y mantenimiento simple."
       />
+      <SolutionsBento />
       <section className="detail-grid">
         {serviceDetails.map((service) => (
           <article key={service.title}>

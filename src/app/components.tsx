@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ReactNode } from 'react';
 import { ContactForm } from './contact-form';
+import { TubelightSiteNav } from './tubelight-site-nav';
 
 export const navItems = [
   ['Soluciones', '/soluciones'],
@@ -32,6 +33,7 @@ export function SiteHeader() {
       <Link className="header-cta" href="/contacto">
         Hablemos
       </Link>
+      <TubelightSiteNav />
     </header>
   );
 }

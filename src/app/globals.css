@@ -74,6 +74,12 @@ a {
   white-space: nowrap;
 }
 
+.site-tubelight-nav {
+  display: none;
+  width: 100%;
+  justify-content: center;
+}
+
 .header-cta,
 .primary-btn,
 .secondary-btn,
@@ -397,6 +403,14 @@ h3 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
+}
+
+.model-display-stack {
+  min-height: 250px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 26px 0;
 }
 
 .model-preview-grid article,
@@ -910,6 +924,15 @@ h3 {
   padding: 0 6vw 100px;
 }
 
+.solutions-bento {
+  padding: 0 6vw 38px;
+}
+
+.solutions-bento > div {
+  max-width: none;
+  padding: 0;
+}
+
 .detail-grid.compact {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -1081,11 +1104,28 @@ h3 {
 .contact-form {
   display: grid;
   gap: 14px;
+  padding: 0;
+}
+
+.form-one-shell {
+  display: grid;
+  gap: 22px;
   padding: 28px;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: #fff;
   box-shadow: var(--shadow);
+}
+
+.form-one-heading h2 {
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+
+.form-one-heading p:not(.eyebrow) {
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.6;
 }
 
 .bot-field {
@@ -1160,6 +1200,15 @@ h3 {
 
   .site-header nav::-webkit-scrollbar {
     display: none;
+  }
+
+  .site-header > nav {
+    display: none;
+  }
+
+  .site-tubelight-nav {
+    display: flex;
+    order: 3;
   }
 
   .hero,
@@ -1261,6 +1310,10 @@ h3 {
     position: static;
     border-radius: 0;
     box-shadow: none;
+  }
+
+  .model-display-stack {
+    display: none;
   }
 
   .timeline-grid article {

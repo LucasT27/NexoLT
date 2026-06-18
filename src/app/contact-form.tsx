@@ -1,6 +1,7 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
+import { FormOneShell } from '@/components/form-1';
 
 type FormState = 'idle' | 'loading' | 'success' | 'error';
 
@@ -68,39 +69,36 @@ export function ContactForm() {
   }
 
   return (
-    <form
-      className="contact-form"
-      name="contacto"
-      onSubmit={onSubmit}
-      noValidate
-    >
-      <label className="bot-field">
-        No completar
-        <input name="_gotcha" tabIndex={-1} autoComplete="off" />
-      </label>
-      <label>
-        Nombre
-        <input name="nombre" required minLength={2} placeholder="Tu nombre" />
-      </label>
-      <label>
-        Email
-        <input name="email" type="email" required placeholder="tu@email.com" />
-      </label>
-      <label>
-        Mensaje
-        <textarea
-          name="mensaje"
-          required
-          minLength={10}
-          placeholder="Contanos brevemente tu situacion..."
-        />
-      </label>
-      <p className={`form-status ${state}`} role="status" aria-live="polite">
-        {message}
-      </p>
-      <button type="submit" disabled={state === 'loading'}>
-        {state === 'loading' ? 'Enviando...' : 'Enviar consulta'}
-      </button>
-    </form>
+    <FormOneShell>
+      <form className="contact-form" name="contacto" onSubmit={onSubmit} noValidate>
+        <label className="bot-field">
+          No completar
+          <input name="_gotcha" tabIndex={-1} autoComplete="off" />
+        </label>
+        <label>
+          Nombre
+          <input name="nombre" required minLength={2} placeholder="Tu nombre" />
+        </label>
+        <label>
+          Email
+          <input name="email" type="email" required placeholder="tu@email.com" />
+        </label>
+        <label>
+          Mensaje
+          <textarea
+            name="mensaje"
+            required
+            minLength={10}
+            placeholder="Contanos brevemente tu situacion..."
+          />
+        </label>
+        <p className={`form-status ${state}`} role="status" aria-live="polite">
+          {message}
+        </p>
+        <button type="submit" disabled={state === 'loading'}>
+          {state === 'loading' ? 'Enviando...' : 'Enviar consulta'}
+        </button>
+      </form>
+    </FormOneShell>
   );
 }

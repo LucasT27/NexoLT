@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import DisplayCards from '@/components/ui/display-cards';
 import { ContactBand } from './components';
 import { modelCases, stats } from './data';
 import { HomeDiagnostic } from './home-diagnostic';
@@ -59,6 +60,32 @@ export default function HomePage() {
               <p>{item.outcome}</p>
             </article>
           ))}
+        </div>
+        <div className="model-display-stack" aria-hidden="true">
+          <DisplayCards
+            cards={[
+              {
+                title: 'Consulta',
+                description: 'Entra por web o redes',
+                date: 'Paso 01',
+                titleClassName: 'text-[#007d5b]'
+              },
+              {
+                title: 'Proceso',
+                description: 'Se ordena y automatiza',
+                date: 'Paso 02',
+                titleClassName: 'text-[#007d5b]',
+                className: '[grid-area:stack] translate-x-10 translate-y-8'
+              },
+              {
+                title: 'Resultado',
+                description: 'Datos claros para decidir',
+                date: 'Paso 03',
+                titleClassName: 'text-[#007d5b]',
+                className: '[grid-area:stack] translate-x-20 translate-y-16'
+              }
+            ]}
+          />
         </div>
         <Link className="text-link" href="/proyectos">
           Ver casos modelo
